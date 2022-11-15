@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forum-web-app
+spec:
+  selector:
+    matchLabels:
+      app: forum-web-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: forum-web-app
+    spec:
+      containers:
+      - name: forum-web-app
+        image: adilkenzhigaliyev/kenzhigaliyev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8077

@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+html,
+::placeholder,
+textarea,
+input {
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+a,
+a:active,
+a:focus,
+div[contenteditable] {
+  color: var(--text-color);
+  text-decoration: none;
+  outline: none;
+}
+
+li,
+ul {
+  list-style-type: none;
+  list-style: none;
+}
+
+body,
+ul,
+li,
+h4,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+i {
+  cursor: pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.form {
+  padding: 15px 40px 0;
+}
+
+.scrollable {
+  height: calc(100vh - 52px);
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.true {
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  .scrollable {
+    height: calc(100vh - 47px - 52px);
+  }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
