@@ -14,7 +14,14 @@ spec:
     spec:
       containers:
       - name: forum-web-app
-        image: adilkenzhigaliyev/kenzhigaliyev
+        #resources:
+          #limits:
+           # cpu: 1
+           # memory: 1Gi
+          #requests:
+           # cpu: 100m
+          # memory: 250Mi
+        image: adilkenzhigaliyev/kenzhigaliyev:test
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8077
+        - containerPort: 8080
