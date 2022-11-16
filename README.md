@@ -1,51 +1,18 @@
-# Forum for Alem Community
+# Kubernetes проект
 
-
-## How to run
-```
-go run .
-```
-
-User features:
-
-- [x] Registration with encrypted store of passwords in DB
-- [ ] Email Verification
-- [x] Login with JWT issue & logout with JWT removal
-- [ ] Login/Registration using GitHub
-- [x] Get posts details [author, title, text, timestamp, categories, likes, dislikes]:
-- [x] - by category
-- [x] - by status
-- [x] - by user id
-- [x] - by post id
-- [x] - by search pattern
-- [x] - by most liked/disliked posts
-- [x] - with pagination
-- [x] Write/update/delete post
-- [x] Write/update/delete comment
-- [x] Like/dislike post or comment
-- [x] Post or comment report
-- [x] Avatar upload
-- [x] Post image upload (return as new url)
-- [ ] Single user profile view (likes, dislikes, posts, comments)
-
-Websocket features:
-
-- [ ] Posts live-apperance
-- [ ] Comments live-apperance
-- [ ] Likes/Dislikes count live-changing
-- [ ] Who's online
-- [ ] Notifications
-
-Admin features:
-
-- [x] Category creation & edit
-- [x] Category delete
-- [x] List all users
-- [x] Changing user's role
-
-Admin & Moderator features:
-
-- [x] User's post and comment edit
-- [x] Reports review
-- [x] Report status change
-- [ ] User suspension with due time
+## Веб приложение было позаимствовано у  https://github.com/azakost/forum-Go
+### Во-первых был поднят веб приложение и упаковано в доккер файл
+### После был создан образ и запушен на DockerHub
+### Был установлен kubectl и minikube
+### В качетсве ВМ был использован docker, так как другие ВМ macbook pro m1 не поддерживает
+### https://0to1.nl/post/minikube-m1-pro-issues/
+### Были созданы два файлы: для деплоя deployment.yaml и для сервиса service.yaml
+### кубер кластер поднялся и через комманду kubectl apply -f ....yaml были применены
+### Но возникла ошибка, при комманде minikube service ... , localhost:port не отображал веб интерфейс
+### В интернете многие на macbook m1 сталкивались со схожей ситуацией, но ответа не нашел
+### Решил поднять на aws, заказал три инстанса и кластер поднялся, но при ssh ubuntu@ipadress подключении происходил connection time out
+### Начал траблшутить и проверять на открытость удаленного подключения на ноуте.
+### После решил поднять на GCP там поднялись три ВМ и kubectl был настроен для работы с кластером
+### Задеплоил deployment.yaml, выявилась ошибка CrashLoopBack
+### Начал искать ответ в интернете, пересобрал образ и доккер файл.
+### Начал глубже изучать код, в качестве базы данных использовался sqlite, который не поддерживается на gcp.
